@@ -38,10 +38,10 @@ class Student extends Person{
     });
   }
   PRAssignment(subject){
-    return `${student.name} has submitted a PR for ${subject}.`;
+    return `${this.name} has submitted a PR for ${subject}.`;
   }
   sprintChallenge(subject){
-    return `${student.name} has begun sprint challenge on ${subject}.`;
+    return `${this.name} has begun sprint challenge on ${subject}.`;
   }
 };
 
@@ -62,7 +62,7 @@ class ProjectManager extends Instructor{
 const linda = new Instructor({
   name: 'Linda',
   age: 50,
-  location: 'Connecticut',
+  location: 'Norwich, Connecticut',
   favLanguage: 'JavaScript',
   specialty: 'Back-End',
   catchPhrase: 'A computer program does what you tell it to do, not what you want it to do'
@@ -77,7 +77,22 @@ const katrina = new Student({
   favSubjects: ['JavaScript', 'Less']
 });
 
+const james = new ProjectManager({
+  name: 'James',
+  age: 26,
+  location: 'Washington, DC',
+  gradClassName: 'Web1',
+  favInstructor: 'Ryan'
+});
+
 
 console.log(linda.demo('JavaScript'));
+console.log(linda.grade(katrina, katrina.favSubjects[1]));
+console.log(linda.speak());
 console.log(katrina.speak());
-console.log(katrina.listsSubjects());
+console.log(james.speak());
+console.log(katrina.PRAssignment(katrina.favSubjects[0]));
+console.log(katrina.sprintChallenge(katrina.favSubjects[0]));
+katrina.listsSubjects();
+console.log(james.standUp('Web 2'));
+console.log(james.debugsCode(katrina, katrina.favSubjects[0]));
